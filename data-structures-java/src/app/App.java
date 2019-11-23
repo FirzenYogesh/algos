@@ -33,7 +33,7 @@ public class App {
             System.out.println(integer);
         }
         System.out.println();
-        System.out.println(list.get(3));
+        System.out.println(list.remove(3));
         // for (Integer integer : list) {
         // System.out.println(integer);
         // }

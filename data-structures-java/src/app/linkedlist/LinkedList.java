@@ -113,16 +113,17 @@ public class LinkedList<T> implements Iterable<T> {
         if (index < size / 2) {
             int counter = 0;
             Node<T> temp = head;
-            while (counter != index) {
+            while (counter < index) {
                 temp = temp.next;
+                counter++;
             }
             return temp.data;
         } else {
-            int counter = size;
+            int counter = size - 1;
             Node<T> temp = tail;
-            while (counter != index) {
+            while (counter > index) {
                 temp = temp.prev;
-                counter++;
+                counter--;
             }
             return temp.data;
         }
@@ -163,22 +164,22 @@ public class LinkedList<T> implements Iterable<T> {
         if (index < size / 2) {
             int counter = 0;
             Node<T> temp = head;
-            while (counter != index) {
+            while (counter < index) {
                 temp = temp.next;
                 counter++;
             }
-            T data = temp.next.data;
+            T data = temp.data;
             temp.next.next.prev = temp;
             temp.next = temp.next.next;
             return data;
         } else {
-            int counter = 0;
+            int counter = size - 1;
             Node<T> temp = tail;
-            while (counter != index) {
+            while (counter > index) {
                 temp = temp.prev;
                 counter--;
             }
-            T data = temp.prev.data;
+            T data = temp.data;
             temp.prev.prev.next = temp;
             temp.prev = temp.prev.prev;
             return data;
