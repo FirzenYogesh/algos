@@ -1,10 +1,11 @@
 package app;
 
 import app.linkedlist.LinkedList;
+import app.stack.Stack;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        linkedListTest();
+        testStack();
     }
 
     static void linkedListTest() {
@@ -32,6 +33,15 @@ public class App {
             System.out.println(integer);
         }
         System.out.println();
+    }
 
+    static void testStack() {
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < 5; i++) {
+            stack.push(i + 1);
+        }
+        while(stack.size() > 0) {
+            System.out.println(stack.pop());
+        }
     }
 }

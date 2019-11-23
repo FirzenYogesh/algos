@@ -82,7 +82,7 @@ public class LinkedList<T> implements Iterable<T> {
         addLast(data);
     }
 
-    public void add(int index, T data) throws IndexOutOfBoundsException {
+    public void add(int index, T data) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Invalid Index");
         }
@@ -106,7 +106,7 @@ public class LinkedList<T> implements Iterable<T> {
         return false;
     }
 
-    public T get(int index) throws IndexOutOfBoundsException {
+    public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid Index");
         }
@@ -210,5 +210,14 @@ class ListIterator<T> implements Iterator<T> {
     @Override
     public void remove() {
         throw new UnsupportedOperationException();
+    }
+}
+
+class Node<T> {
+    Node<T> prev, next;
+    T data;
+
+    public Node(T data) {
+        this.data = data;
     }
 }
