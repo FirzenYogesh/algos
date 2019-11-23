@@ -5,7 +5,7 @@ import app.stack.Stack;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        testStack();
+        linkedListTest();
     }
 
     static void linkedListTest() {
@@ -33,6 +33,11 @@ public class App {
             System.out.println(integer);
         }
         System.out.println();
+        System.out.println(list.get(3));
+        // for (Integer integer : list) {
+        // System.out.println(integer);
+        // }
+        // System.out.println();
     }
 
     static void testStack() {
@@ -40,7 +45,7 @@ public class App {
         for (int i = 0; i < 5; i++) {
             stack.push(i + 1);
         }
-        while(stack.size() > 0) {
+        while (stack.size() > 0) {
             System.out.println(stack.pop());
         }
     }

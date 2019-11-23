@@ -122,6 +122,7 @@ public class LinkedList<T> implements Iterable<T> {
             Node<T> temp = tail;
             while (counter != index) {
                 temp = temp.prev;
+                counter++;
             }
             return temp.data;
         }
@@ -132,6 +133,7 @@ public class LinkedList<T> implements Iterable<T> {
             size--;
             T data = head.data;
             head = head.next;
+            head.prev = null;
             return data;
         } else {
             return null;
@@ -143,6 +145,7 @@ public class LinkedList<T> implements Iterable<T> {
             size--;
             T data = tail.data;
             tail = tail.prev;
+            tail.next = null;
             return data;
         } else {
             return null;
@@ -151,6 +154,35 @@ public class LinkedList<T> implements Iterable<T> {
 
     public T remove() {
         return removeFirst();
+    }
+
+    public T remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid Index");
+        }
+        if (index < size / 2) {
+            int counter = 0;
+            Node<T> temp = head;
+            while (counter != index) {
+                temp = temp.next;
+                counter++;
+            }
+            T data = temp.next.data;
+            temp.next.next.prev = temp;
+            temp.next = temp.next.next;
+            return data;
+        } else {
+            int counter = 0;
+            Node<T> temp = tail;
+            while (counter != index) {
+                temp = temp.prev;
+                counter--;
+            }
+            T data = temp.prev.data;
+            temp.prev.prev.next = temp;
+            temp.prev = temp.prev.prev;
+            return data;
+        }
     }
 
     public void push(T data) {
