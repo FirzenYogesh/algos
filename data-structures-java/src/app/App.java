@@ -2,10 +2,12 @@ package app;
 
 import app.linkedlist.LinkedList;
 import app.stack.Stack;
+import app.tree.array.MinHeap;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        linkedListTest();
+        // linkedListTest();
+        minHeapTest();
     }
 
     static void linkedListTest() {
@@ -47,6 +49,20 @@ public class App {
         }
         while (stack.size() > 0) {
             System.out.println(stack.pop());
+        }
+    }
+
+    static void minHeapTest() {
+        MinHeap heap = new MinHeap(12);
+        heap.insert(1);
+        heap.insert(10);
+        heap.insert(5);
+        heap.insert(4);
+        heap.insert(3);
+        heap.insert(6);
+        //heap.inorder();
+        while(!heap.isEmpty()) {
+            System.out.println(heap.pop());
         }
     }
 }
