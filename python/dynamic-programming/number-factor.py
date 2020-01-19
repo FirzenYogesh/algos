@@ -11,8 +11,7 @@ def waysTD(dp, n):
     return dp[n]
 
 
-def waysBU(n):
-    dp = [0] * (n+1)
+def waysBU(dp, n):
     dp[0] = dp[1] = dp[2] = 1
     dp[3] = 2
     for i in range(4, n + 1):
@@ -21,6 +20,5 @@ def waysBU(n):
 
 
 n = 6
-dp = [0] * (n + 1)
-print(waysTD(dp, n))
-print(waysBU(n))
+print(waysTD([0] * (n + 1), n))
+print(waysBU([0] * (n + 1), n))
